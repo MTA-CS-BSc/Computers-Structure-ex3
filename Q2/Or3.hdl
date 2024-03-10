@@ -1,0 +1,8 @@
+CHIP Or3 {
+    IN x, y, z;
+    OUT out;
+
+    PARTS:
+    Or(a=x, b=y, out=xory);
+    Or(a=xory, b=z, out=out);
+}
