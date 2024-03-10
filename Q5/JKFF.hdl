@@ -1,0 +1,23 @@
+/**
+ * JK Flip-Flop implementation in HDL for NAND to Tetris using NOR gates
+ * 
+ * A JK flip-flop has two inputs: J (set) and K (reset),
+ * and two outputs: Q and Q' (complement of Q).
+ * 
+ * When both J and K inputs are 0, the flip-flop holds its state.
+ * When J=1 and K=0, the flip-flop sets (Q=1).
+ * When J=0 and K=1, the flip-flop resets (Q=0).
+ * When both J and K inputs are 1, the flip-flop toggles its state.
+ */
+
+CHIP JKFF {
+    IN J, K;
+    OUT Q;
+
+    PARTS:
+    Not(in=tempQ, out=notQ);
+    And(a=K, b=tempQ, out=r);
+    And(a=J, b=notQ, out=s);
+
+    RSFF(R=r, S=s, Q=Q, Q=tempQ);
+}

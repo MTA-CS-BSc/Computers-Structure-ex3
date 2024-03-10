@@ -1,0 +1,12 @@
+
+CHIP RSFF {
+    IN S, R;
+    OUT Q;
+
+    PARTS:
+    Not(in=tempQ, out=notQ);
+    Nor(a=S, b=tempQ, out=newNQ);
+    Nor(a=R, b=newNQ, out=newQ);
+
+    DFF(in=newQ, out=Q, out=tempQ);
+}
