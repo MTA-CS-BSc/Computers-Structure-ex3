@@ -26,7 +26,7 @@ CHIP Ex3Q5 {
     And(a=count, b=notq1XORq2, out=J3);
     And(a=count, b=q1XORq2, out=K3);
 
-    JKFF(K=K1, J=J1, Q=out[2], Q=q1);
-    JKFF(K=K2, J=J2, Q=out[1], Q=q2);
     JKFF(K=K3, J=J3, Q=out[0], Q=q3);
+    JKFF(K=K2, J=J2, Q=out[1], Q=q2);
+    JKFF(K=K1, J=J1, Q=out[2], Q=q1);
 }
