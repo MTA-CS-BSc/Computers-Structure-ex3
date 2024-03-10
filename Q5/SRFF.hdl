@@ -1,5 +1,5 @@
 
-CHIP RSFF {
+CHIP SRFF {
     IN S, R;
     OUT Q;
 

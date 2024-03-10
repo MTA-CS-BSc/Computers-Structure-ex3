@@ -19,5 +19,5 @@ CHIP JKFF {
     And(a=K, b=tempQ, out=r);
     And(a=J, b=notQ, out=s);
 
-    RSFF(R=r, S=s, Q=Q, Q=tempQ);
+    SRFF(R=r, S=s, Q=Q, Q=tempQ);
 }
