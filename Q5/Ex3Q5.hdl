@@ -1,0 +1,32 @@
+/******************************************************************************
+   A counter using JKFFs that counts according to Gray code i.e. 
+   periodically generates the following sequence of numbers: 
+   000, 001, 011, 010, 110, 111, 101, 100.  
+   The counter has a single control input: count. 
+   The counter generates the next number only if count=1. 
+ *******************************************************************************/
+
+CHIP Ex3Q5 {
+    IN count;
+    OUT out[3];
+
+    PARTS:
+    Not(in=q1, out=notQ1);
+    Not(in=q2, out=notQ2);
+    Not(in=q3, out=notQ3);
+    
+    And3(x=q2, y=notQ3, z=count, out=J1);
+    And3(x=notQ2, y=notQ3, z=count, out=K1);
+  
+    And3(x=notQ1, y=q3, z=count, out=J2);
+    And3(x=q1, y=q3, z=count, out=K2);
+
+    Xor(a=q1, b=q2, out=q1XORq2);
+    Not(in=q1XORq2, out=notq1XORq2);
+    And(a=count, b=notq1XORq2, out=J3);
+    And(a=count, b=q1XORq2, out=K3);
+
+    JKFF(K=K1, J=J1, Q=out[2], Q=q1);
+    JKFF(K=K2, J=J2, Q=out[1], Q=q2);
+    JKFF(K=K3, J=J3, Q=out[0], Q=q3);
+}
