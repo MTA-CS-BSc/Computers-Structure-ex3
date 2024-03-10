@@ -1,0 +1,26 @@
+/**
+ *  A FSM with input x and output z which outputs 1 in case one of the two following 
+ *  series is encountered: 1100 or 0101. The FSM will output 0 otherwise. Overlapping is 
+ *  permitted � the input 1100101 will result in the output 0001001. 
+ *  Use D-FF units and minimal logic.
+ */
+
+CHIP Ex3Q1 {
+    IN  x;
+    OUT z;
+
+    PARTS:
+    // Put your implementation here 
+    DFF(in=x, out=d0out);
+    DFF(in=d0out, out=d1out);
+    DFF(in=d1out, out=d2out);
+    DFF(in=d2out, out=d3out);
+
+    Not(in=d0out, out=notd0out);
+    Not(in=d1out, out=notd1out);
+    Not(in=d3out, out=notd3out);
+
+    And4(x=notd0out, y=notd1out, z=d2out, w=d3out, out=option1series);
+    And4(x=d0out, y=notd1out, z=d2out, w=notd3out, out=option2series);
+    Or(a=option1series, b=option2series, out=z);    
+}
