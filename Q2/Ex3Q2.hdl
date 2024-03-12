@@ -1,5 +1,5 @@
 /**
- *  A Moore FSM with two inputs x_t y_t and one output z where x_t y_t 
+ *  A Mealy FSM with two inputs x_t y_t and one output z where x_t y_t 
  *  represent the letters A, B, C, D as follows:  A=00, B=01, C=10, D=11. 
  *  The output z=1 if and only if the last two letters are consecutive in alphabetic 
  *  order: AB, BC, CD.
