@@ -6,26 +6,26 @@ output-list time%S1.4.1 z%B1.1.1;
 set x %B1,
 tick, tock,output;
 
-set x 1,
+set x %B1,
 tick, tock,output;
 
-set x 0,
+set x %B0,
 tick, tock,output;
 
-set x 0,
+set x %B0,
 tick, tock,output;
 
-set x 1,
+set x %B1,
 tick, tock,output;
 
-set x 0,
+set x %B0,
 tick, tock,output;
 
-set x 1,
+set x %B1,
 tick, tock,output;
 
-set x 0,
+set x %B0,
 tick, tock,output;
 
-set x 1,
+set x %B1,
 tick, tock,output;
