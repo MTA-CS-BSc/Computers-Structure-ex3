@@ -1,7 +1,7 @@
 load Ex3Q2.hdl,
 output-file Ex3Q2.out,
 compare-to Ex3Q2.cmp,
-output-list time%S1.4.1 z%B1.1.1;
+output-list time%S1.4.1 z%D1.1.1;
 
 set x 0,
 set y 0,
